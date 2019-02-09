@@ -51,7 +51,13 @@ def self.create(name, grade)
     row = name[1]
      row = grade[2]
       self.new(id, name, grade)
- end 
+ end
+
+ def self.find_by_name
+
+ end  
+
+
 
 
 
