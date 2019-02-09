@@ -58,8 +58,8 @@ def self.create(name, grade)
    LIMIT 1
    SQL
 
-DB[:conn].execute(sql,name).map |new_name|
- self.new_from_db(new_name)
+DB[:conn].execute(sql,name).map |r|
+ self.new_from_db(r)
  end.first
 end
 
