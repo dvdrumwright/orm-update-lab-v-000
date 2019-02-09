@@ -27,7 +27,7 @@ def self.drop_table
 end
 
 def save
- if id = id.self
+ if id = self.id 
   else
   self.update
   sql = <<-SQL
