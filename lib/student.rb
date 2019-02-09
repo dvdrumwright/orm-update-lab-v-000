@@ -26,9 +26,9 @@ def self.drop_table
  DB[:conn].execute(sql)
 end
 
-def save
- if @id 
-    self.update
+def save(save)
+ if save.each do |save|
+   save = self.id || self.update
   else
    sql = <<-SQL
         INSERT INTO students (name, grade)
