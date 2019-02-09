@@ -27,9 +27,10 @@ def self.drop_table
 end
 
 def save
-  self.id
-  self.update
-  sql = <<-SQL
+ if @id 
+    self.update
+  else
+   sql = <<-SQL
         INSERT INTO students (name, grade)
         VALUES (?, ?)
       SQL
