@@ -6,7 +6,7 @@ class Student
   #  with DB[:conn]
 
   attr_accessor :name, :grade
-  
+
 
 def initialize(id=nil, name, grade)
     @id = id
@@ -45,13 +45,13 @@ def self.create(name, grade)
    students.save
  end
 
- # def self.new_from_db(row)
- #    id = row[0]
- #    name = row[1]
- #    grade = row[2]
- #    self.new(id, name, grade)
- #  end
- #
+ def self.new_from_db(row)
+    id = row[0]
+    name = row[1]
+    grade = row[2]
+    self.new(id, name, grade)
+  end
+ 
  # def self.find_by_name(name)
  #   sql = <<-SQL
  #   SELECT * FROM students WHERE name = ?
@@ -77,14 +77,6 @@ def self.find_by_name(name)
       self.new_from_db(row)
     end.first
   end
-
-
-
-
-
-
-
-
 
 def update
  sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
