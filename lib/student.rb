@@ -7,11 +7,11 @@ class Student
 
   attr_accessor :name, :grade, :id
 
-  def initialized(id=nil, name, grade)
-      @id = id
-      @name = name
-      @grade = grade
-    end
+  def initialize(id=nil, name, grade)
+    @id = id
+    @name = name
+    @grade = grade
+  end
 
 
 
