@@ -54,8 +54,19 @@ def self.create(name, grade)
  end
 
  def self.find_by_name
+   sql = <<-SQL
+   SELECT students
+   FROM name = ?
+   LIMIT 1
+   SQL
 
- end  
+DB[:conn].execute(sql,name).map |name|
+self.new_from_db(name)
+   end.first
+ end
+   
+
+
 
 
 
