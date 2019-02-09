@@ -55,8 +55,8 @@ def self.create(name, grade)
 
  def self.find_by_name
    sql = <<-SQL
-   SELECT students
-   FROM name = ?
+   SELECT * students
+   FROM students WHERE name = ?
    LIMIT 1
    SQL
 
@@ -64,7 +64,12 @@ DB[:conn].execute(sql,name).map |name|
 self.new_from_db(name)
    end.first
  end
-   
+
+
+ 
+
+
+
 
 
 
@@ -75,13 +80,6 @@ self.new_from_db(name)
 def update
  sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
    DB[:conn].execute(sql, self.name, self.grade, self.id)
-end
-
-
-
-
-
-
-
+ end
 
 end
