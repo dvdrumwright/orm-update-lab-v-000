@@ -26,10 +26,16 @@ def self.drop_table
  DB[:conn].execute(sql)
 end
 
+def self.update
+  sql = "UPDATE students SET name = ?, grade = ? WHERE id = ?"
+    DB[:conn].execute(sql, self.name, self.grade, self.id)
+  end
+
+
 def save
  if self.id
-    
-  else
+    self.update
+ else
    sql = <<-SQL
         INSERT INTO students (name, grade)
         VALUES (?, ?)
